@@ -1,0 +1,18 @@
+schema: '2.0'
+stages:
+  predict:
+    cmd: python3 ./src/knn_model.py
+    deps:
+    - path: ./data/iris.data
+      md5: 42615765a885ddf54427f12c34a0a070
+      size: 4551
+    - path: ./src/knn_model.py
+      md5: 0ae6fe44ffe370fbf8dc5ed968901333
+      size: 378
+    params:
+      params.yaml:
+        predict.n_neighbors: 3
+    outs:
+    - path: predict.txt
+      md5: 7cbdcb79abcb69fe1b7e0b91f423be9b
+      size: 17

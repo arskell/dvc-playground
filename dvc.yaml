@@ -1,0 +1,10 @@
+stages:
+  predict:
+    cmd: python3 ./src/knn_model.py
+    metrics:
+    - predict.txt
+    deps:
+    - ./data/iris.data
+    - ./src/knn_model.py
+    params:
+    - predict.n_neighbors
