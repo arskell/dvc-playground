@@ -1,0 +1,18 @@
+schema: '2.0'
+stages:
+  split:
+    cmd: python3 src/split.py
+    deps:
+    - path: data/iris.data
+      md5: 42615765a885ddf54427f12c34a0a070
+      size: 4551
+    - path: src/split.py
+      md5: de0f0bada452d811dd92c07c3668256d
+      size: 245
+    outs:
+    - path: data/iris_test.data
+      md5: 37566fcca8fa569212789bd25d5481e2
+      size: 1046
+    - path: data/iris_train.data
+      md5: 8cd0d56a789d679e3d5a0ea691a5b187
+      size: 4020
