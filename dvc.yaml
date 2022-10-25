@@ -1,0 +1,9 @@
+stages:
+  split:
+    cmd: python3 src/split.py
+    deps:
+    - data/iris.data
+    - src/split.py
+    outs:
+    - data/iris_test.data
+    - data/iris_train.data
