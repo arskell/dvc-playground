@@ -1,0 +1,31 @@
+schema: '2.0'
+stages:
+  split:
+    cmd: python3 ./src/split.py
+    deps:
+    - path: ./data/iris.data
+      md5: 42615765a885ddf54427f12c34a0a070
+      size: 4551
+    - path: ./src/split.py
+      md5: b5befecfb00f6b1ef5aa4b07bf6ad711
+      size: 275
+    outs:
+    - path: ./data/iris_test.data
+      md5: b1e4a8779c0e0ed882a85611a64dfede
+      size: 940
+    - path: ./data/iris_train.data
+      md5: f52c6d5588e74d61fa45c9c33a0ccf3c
+      size: 3638
+  predict:
+    cmd: python3 ./src/dtree.py
+    deps:
+    - path: ./data/iris_test.data
+      md5: b1e4a8779c0e0ed882a85611a64dfede
+      size: 940
+    - path: ./data/iris_train.data
+      md5: f52c6d5588e74d61fa45c9c33a0ccf3c
+      size: 3638
+    outs:
+    - path: predict.txt
+      md5: 089fc8a5dcd973b3d8b22aaacf59306f
+      size: 18
