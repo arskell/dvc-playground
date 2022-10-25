@@ -1,4 +1,1 @@
-[core]
-    remote = storage
-['remote "storage"']
-    url = http://archive.ics.uci.edu/ml/datasets/Iris
+
