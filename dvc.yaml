@@ -7,3 +7,13 @@ stages:
     outs:
     - data/iris_test.data
     - data/iris_train.data
+  predict:
+    cmd: python3 ./src/knn_model.py
+    metrics:
+    - predict.txt
+    deps:
+    - ./data/iris_test.data
+    - ./data/iris_train.data
+    - ./src/knn_model.py
+    params:
+    - predict.n_neighbors

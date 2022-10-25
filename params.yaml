@@ -1,0 +1,2 @@
+predict:
+    n_neighbors: 3
