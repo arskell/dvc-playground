@@ -3,16 +3,35 @@ stages:
   predict:
     cmd: python3 ./src/knn_model.py
     deps:
-    - path: ./data/iris.data
-      md5: 42615765a885ddf54427f12c34a0a070
-      size: 4551
+    - path: ./data/iris_test.data
+      md5: 2d1aef976392d00d8384d4274b03907e
+      size: 940
+    - path: ./data/iris_train.data
+      md5: fa2cba866d538f32ed04ccf59068d928
+      size: 3638
     - path: ./src/knn_model.py
-      md5: 0ae6fe44ffe370fbf8dc5ed968901333
-      size: 378
+      md5: bd7a3a617bf7617582534bdbf529741a
+      size: 539
     params:
       params.yaml:
         predict.n_neighbors: 3
     outs:
     - path: predict.txt
-      md5: 7cbdcb79abcb69fe1b7e0b91f423be9b
-      size: 17
+      md5: e4c2e8edac362acab7123654b9e73432
+      size: 3
+  split:
+    cmd: python3 src/split.py
+    deps:
+    - path: data/iris.data
+      md5: 42615765a885ddf54427f12c34a0a070
+      size: 4551
+    - path: src/split.py
+      md5: b5befecfb00f6b1ef5aa4b07bf6ad711
+      size: 275
+    outs:
+    - path: data/iris_test.data
+      md5: 2d1aef976392d00d8384d4274b03907e
+      size: 940
+    - path: data/iris_train.data
+      md5: fa2cba866d538f32ed04ccf59068d928
+      size: 3638
